@@ -17,7 +17,7 @@
                         <input type="text" name="username" v-model="username" placeholder="请输入用户名" maxlength="12" autocomplete="off">
                     </div>
                     <div class="right-infp-name">
-                        <input type="text" name="name" v-model="password" placeholder="请输入用户名" autocomplete="off">
+                        <input type="password" name="name" v-model="password" placeholder="请输入用户名" autocomplete="off">
                     </div>
                     <div class="right-infp-btn">
                         <button class="btn" @click="login">登录</button>
@@ -40,6 +40,12 @@
         methods:{
             login(){
                 this.$http.login(this.username,this.password).then(res=>{
+                    window.localStorage.setItem("Token",res);
+                    this.$router.push({path:"/index"})
+                })
+            },
+            loginGet(){
+                this.$http.loginGet(this.username,this.password).then(res=>{
                     window.localStorage.setItem("Token",res);
                     this.$router.push({path:"/index"})
                 })

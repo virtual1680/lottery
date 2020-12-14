@@ -30,16 +30,15 @@ module.exports = {
     port: port,
     open: true,
     proxy: {
-        ["/api"]:{
-            // target:'http://192.168.0.13:8880',
-            target:'http://lottery.qycwang.com',
+        '/api':{
+            target:'http://192.168.0.13:8880',
+            // target:'http://lottery.qycwang.com',
             changeOrigin:true,
             pathRewrite: {
-                ['^' + "/api"]: ''
+                '^/api': ''
             }
         }
     },
-    disableHostCheck: true
   },
   configureWebpack: {
     name: name,

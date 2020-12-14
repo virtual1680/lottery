@@ -41,21 +41,21 @@
                 <el-form v-if="lotteryInputNum.length > 0" :model="ruleForm" ref="ruleForm" label-width="5px" class="demo-ruleForm">
                     <div style="display:flex;justify-content: space-between;padding:0 20px 0 15px;color: #000000;">
                         <div class="ruleFormBox">
-                                <div class="lottery-info" v-if="lotteryForm.open_name">
-                                    <el-form-item prop="name">
-                                        <el-input v-model="ruleForm['name']" placeholder="员工姓名"></el-input>
-                                    </el-form-item>
-                                </div>
-                                <div class="lottery-info" v-if="lotteryForm.open_job_no">
-                                    <el-form-item prop="name">
-                                        <el-input v-model="ruleForm['job_no']" placeholder="员工号"></el-input>
-                                    </el-form-item>
-                                </div>
-                                <div class="lottery-input" v-for="item in lotteryInputNum" :key="item">
-                                    <el-form-item :prop="(item + 1) + ''">
-                                        <el-input v-model.number="ruleForm[(item + 1)+'']" placeholder="数字"></el-input>
-                                    </el-form-item>
-                                </div>
+                            <div class="lottery-info" v-if="lotteryForm.open_name">
+                                <el-form-item prop="name">
+                                    <el-input v-model="ruleForm['name']" placeholder="员工姓名"></el-input>
+                                </el-form-item>
+                            </div>
+                            <div class="lottery-info" v-if="lotteryForm.open_job_no">
+                                <el-form-item prop="name">
+                                    <el-input v-model="ruleForm['job_no']" placeholder="员工号"></el-input>
+                                </el-form-item>
+                            </div>
+                            <div class="lottery-input" v-for="item in lotteryInputNum" :key="item">
+                                <el-form-item :prop="(item + 1) + ''">
+                                    <el-input v-model.number="ruleForm[(item + 1)+'']" placeholder="数字"></el-input>
+                                </el-form-item>
+                            </div>
                         </div>
                         <el-form-item>
                             <el-button type="primary" @click="submitForm('ruleForm')">立即提交</el-button>
@@ -85,13 +85,13 @@
                 </el-table>
                 <div class="block">
                     <el-pagination
-                            @size-change="handleSizeChange"
-                            @current-change="handleCurrentChange"
-                            :current-page="params.pageNo"
-                            :page-sizes="[30, 50, 100, 200]"
-                            :page-size="params.pageSize"
-                            layout="total, sizes, prev, pager, next, jumper"
-                            :total="params.total">
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="params.pageNo"
+                        :page-sizes="[30, 50, 100, 200]"
+                        :page-size="params.pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="params.total">
                     </el-pagination>
                 </div>
             </div>
@@ -217,6 +217,7 @@
         methods: {
             /** 查看命中人 */
             lookLotteryPersons(id){
+                console.log(id);
                 this.lotteryPersonVisible = true;
                 API.recordByLuckId(id).then((res) => {
                     this.lotteryPersonData = res;

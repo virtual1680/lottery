@@ -37,6 +37,17 @@ export function login(username, pwd) {
         data: data
     })
 }
+export function loginGet(username, pwd) {
+    const data = {
+        username,
+        pwd,
+    };
+    return request({
+        url: '/login',
+        method: 'get',
+        params: data
+    })
+}
 
 /** 获取抽奖参数 */
 export function getLotteryParams() {

@@ -12,6 +12,7 @@ import {Message,Loading} from "element-ui";
 
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
 const http = axios.create({
+    // baseURL:"http://lottery.qycwang.com",
     baseURL:"/api",
     timeout:1000 * 15
 });
